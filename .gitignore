@@ -1,0 +1,19 @@
+# Ambiente Virtual
+.venv/
+venv/
+
+# Arquivos de Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos gerados pela aplicação
+tasks.json
+
+# Arquivos de configuração de IDEs (opcional, mas boa prática)
+.vscode/
+.idea/
+
+# Arquivos de teste do Pytest
+.pytest_cache/
