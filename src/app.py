@@ -58,21 +58,28 @@ else:
                 data_manager.save_data(st.session_state.tasks)
                 st.rerun()
 
+# --- LÓGICA DO FORMULÁRIO DE EDIÇÃO ---
 if 'editing_task_id' in st.session_state and st.session_state.editing_task_id is not None:
     task_to_edit = next((task for task in st.session_state.tasks if task['id'] == st.session_state.editing_task_id), None)
+
     if task_to_edit:
-        with st.dialog("Editar Tarefa"):
+        with st.expander(f"✏️ Editando: {task_to_edit['titulo']}", expanded=True):
             with st.form(key="edit_form"):
-                st.subheader(f"Editando: {task_to_edit['titulo']}")
                 edited_titulo = st.text_input("Título", value=task_to_edit['titulo'])
                 edited_descricao = st.text_area("Descrição", value=task_to_edit['descricao'])
                 prioridades = ["Alta", "Média", "Baixa"]
                 edited_prioridade = st.selectbox("Prioridade", prioridades, index=prioridades.index(task_to_edit['prioridade']))
-                if st.form_submit_button("Salvar Alterações"):
+
+                save_col, cancel_col = st.columns(2)
+                if save_col.form_submit_button("Salvar Alterações", use_container_width=True, type="primary"):
                     task_to_edit['titulo'] = edited_titulo
                     task_to_edit['descricao'] = edited_descricao
                     task_to_edit['prioridade'] = edited_prioridade
                     data_manager.save_data(st.session_state.tasks)
                     st.session_state.editing_task_id = None
                     st.success("Tarefa atualizada!")
+                    st.rerun()
+
+                if cancel_col.form_submit_button("Cancelar", use_container_width=True):
+                    st.session_state.editing_task_id = None
                     st.rerun()
