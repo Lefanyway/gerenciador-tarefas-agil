@@ -1,6 +1,6 @@
 # src/app.py
 import streamlit as st
-from src import data_manager  # Importa nosso novo módulo
+import data_manager
 
 st.set_page_config(page_title="Gerenciador de Tarefas Ágil", page_icon="🚀")
 

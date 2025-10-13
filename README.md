@@ -1,66 +1,108 @@
-Construindo um Projeto Ágil no GitHub: Da Gestão ao Controle de Qualidade
-- Sobre o Projeto
-Este repositório simula o desenvolvimento de um Sistema de Gerenciamento de Tarefas para a empresa fictícia "TechFlow Solutions", especializada em soluções de software para logística. O objetivo principal é aplicar de forma prática os conceitos de Engenharia de Software, desde o planejamento ágil e versionamento de código até a implementação de funcionalidades, controle de qualidade com testes automatizados e gestão de mudanças.
+# ✅ Gerenciador de Tarefas Ágil com GitHub
 
-O projeto foi construído utilizando Python, Streamlit e gerenciado no GitHub.
+## 📌 Sobre o projeto
 
-- Objetivo e Escopo
-O sistema foi projetado para permitir que equipes de logística acompanhem o fluxo de trabalho em tempo real, priorizem tarefas críticas e monitorem o desempenho da equipe.
+O projeto é **Sistema de Gerenciamento de Tarefas** para a empresa fictícia **TechFlow Solutions**, aplicando conceitos reais de **Engenharia de Software**:
 
-Foi feita a implementação de uma funcionalidade CRUD (Create, Read, Update, Delete) para o gerenciamento de tarefas, incluindo:
+* Planejamento ágil
+* Controle de versão
+* Implementação de funcionalidades
+* Testes automatizados
+* Gestão de mudanças
 
-Criação de novas tarefas com título, descrição e nível de prioridade.
+A aplicação foi desenvolvida em **Python + Streamlit**, com todo o ciclo de vida controlado no **GitHub**.
 
-Leitura de todas as tarefas cadastradas em uma interface limpa.
+---
 
-Atualização do status de uma tarefa (A Fazer, Em Progresso, Concluído) e edição de seus detalhes.
+## 🎯 Objetivo do Sistema
 
-Exclusão de tarefas.
+Auxiliar equipes de **logística** a:
 
-Metodologia Ágil: Kanban
-A metodologia ágil escolhida foi o Kanban, devido à sua simplicidade e foco no fluxo de trabalho visual, e Para a gestão das atividades, foi utilizado o GitHub Projects.
+* Acompanhar o fluxo de trabalho
+* Priorizar tarefas
+* Monitorar desempenho em tempo real
 
-🚀 Como Executar o Projeto
-Para executar este projeto localmente, siga os passos abaixo:
+---
 
-Clone o repositório:
+## 🔧 Funcionalidades (CRUD Completo)
 
-Bash
+| Ação          | Descrição                                                                  |
+| ------------- | -------------------------------------------------------------------------- |
+| **Criar**     | Adicionar tarefa com título, descrição e prioridade                        |
+| **Ler**       | Visualizar todas as tarefas em interface simples                           |
+| **Atualizar** | Alterar status (`A Fazer`, `Em Progresso`, `Concluído`) ou editar detalhes |
+| **Excluir**   | Remover tarefas do sistema                                                 |
 
+---
+
+## 📌 Metodologia Ágil
+
+Metodologia adotada: **Kanban**
+
+Justificativa:
+
+* Simples
+* Visual
+* Foco no fluxo contínuo
+
+Ferramenta utilizada: **GitHub Projects (aba “Projects”)**
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### 1️⃣ Clonar repositório
+
+```bash
 git clone https://github.com/Lefanyway/gerenciador-tarefas-agil.git
 cd gerenciador-tarefas-agil
-Crie e ative um ambiente virtual:
+```
 
-Bash
+### 2️⃣ Criar e ativar ambiente virtual
 
-# Crie o ambiente
+```bash
+# Criar ambiente
 python -m venv .venv
-# Ative o ambiente (Windows)
+
+# Ativar (Windows)
 .\.venv\Scripts\activate
-# Ative o ambiente (Linux/macOS)
+
+# Ativar (Linux/macOS)
 source .venv/bin/activate
-Instale as dependências:
+```
 
-Bash
+### 3️⃣ Instalar dependências
 
+```bash
 pip install -r requirements.txt
-Execute a aplicação Streamlit:
+```
 
-Bash
+### 4️⃣ Executar aplicação
 
+```bash
 streamlit run src/app.py
-A aplicação abrirá automaticamente no seu navegador.
+```
+
+A aplicação abrirá automaticamente no navegador.
+
+---
+
+## ✅ Garantia de Qualidade
+
+### 🔹 Testes Automatizados (PyTest)
+
+Testes unitários verificam:
+
+* Adição de tarefas
+* Atualização de status
+* Exclusão de registros
 
 
-- Controle de Qualidade
-Testes Automatizados
-Utilizei a biblioteca PyTest para criar testes unitários que validam a lógica de negócio no módulo data_manager.py. Os testes garantem que as funcionalidades de adicionar, atualizar e deletar tarefas funcionam como esperado, independentemente da interface gráfica.
+### 🔹 Integração Contínua (GitHub Actions)
 
-Integração Contínua com GitHub Actions
-Foi configurado um pipeline de CI usando o GitHub Actions. A cada push para a branch main, o workflow é acionado para:
+Pipeline acionado a cada `push` na branch `main`:
 
+1. Cria ambiente Python limpo
+2. Instala dependências
+3. Executa testes automatizados
 
-Configurar um ambiente Python limpo, instalar as dependências do projeto e executar a suíte de testes automatizados.
-
-
-(Projeto de faculdade)
