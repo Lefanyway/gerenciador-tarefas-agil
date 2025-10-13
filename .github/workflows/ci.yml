@@ -1,0 +1,42 @@
+# .github/workflows/ci.yml
+
+# Nome do workflow que aparecerá na aba "Actions" do GitHub
+name: Pipeline de CI - Testes Automatizados
+
+# Gatilho: Define quando o workflow deve rodar.
+# Neste caso, a cada 'push' para a branch 'main'
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Tarefas: Define o que o workflow vai fazer.
+jobs:
+  # Nome da tarefa (pode ser qualquer nome)
+  build:
+    # Sistema Operacional da máquina virtual
+    runs-on: ubuntu-latest
+
+    # Passos que a tarefa irá executar em sequência
+    steps:
+    # Passo 1: Baixar o código do seu repositório para a máquina virtual
+    - name: Checkout do código
+      uses: actions/checkout@v3
+
+    # Passo 2: Configurar a versão do Python que queremos usar
+    - name: Configurar Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+
+    # Passo 3: Instalar as dependências do projeto
+    - name: Instalar dependências
+      run: |
+        python -m pip install --upgrade pip
+        pip install streamlit pytest
+
+    # Passo 4: Executar os testes com Pytest
+    - name: Rodar os testes
+      run: |
+        pytest
